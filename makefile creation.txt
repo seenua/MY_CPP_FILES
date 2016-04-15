@@ -1,0 +1,73 @@
+make file tutorials:
+
+http://www.firmcodes.com/linux/write-first-makefile-c-source-code-linux-tutorial/
+
+
+http://www.cs.umd.edu/class/fall2002/cmsc214/Tutorial/makefile.html
+
+https://www.cs.swarthmore.edu/~newhall/unixhelp/howto_makefiles.html
+
+git commands:
+
+1.To create new remote repository from the exsisting main repository and use following command
+repo create <frm were wee hv to download> <new-name for remote repo>
+
+e.g:
+
+repo create rel_richmond repo_richmond //under repo_richmond directory,it will create rel_richmond..
+repo create rel_richmond //in my current directory,it will create rel_richmond
+repo create rel_spokane repo_spokane
+
+2.To delete repo use below command
+
+repo delete -f <repository name>
+
+e.g:
+
+repo delete -f repo_spokane/
+
+3.To create new branch
+
+git branch <new-branch name>
+
+e.g:
+
+git branch Topic-branch
+
+4.To list an exsisting branches
+
+git branch 
+
+5.To delete a branch
+
+git delete -D <branch-name going to delete>
+
+6.To see the status in my branch
+
+git status
+
+7.To see code changes
+
+git show
+
+8.To see difference 
+
+git diff 
+
+9.To fetch a files
+
+git pull 
+
+10.To switch branch
+
+git checkout <branchname>
+
+11.To get updated changes 
+
+do git pull in main branch and switch to topic branch 
+
+do git rebase,now ur branch updated with new changes.. 
+
+12.To clean repo
+
+repo clean -xfd
