@@ -1,0 +1,283 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+template <class T>
+struct node
+{
+	T data;
+	node *next;
+};
+
+template <class T>
+class stack
+{
+	static int count;
+	node<T> * Head;
+	node<T> * Tail;
+	public:
+		stack()
+		{
+			Head=NULL;
+			Tail=NULL;
+		}
+		node<T> *createnode(T);
+		void push(T);
+		T pop();
+		int stacksize();
+		void display();
+};
+
+template <class T>
+int stack<T>::count=0;
+
+template <class T>
+node <T>* stack<T> ::createnode(T v)
+{
+	node<T> *p;
+	p=new node<T>;
+	p->data=v;
+	p->next=NULL;
+	return(p);
+}
+
+template <class T>
+void stack<T>::push(T v)
+{
+	node<T> *n;
+	n=stack<T>::createnode(v);
+	if((Head==NULL)&&(Tail==NULL))
+	{
+		count++;
+		Head=n;
+		Tail=n;
+	}
+	else
+	{
+	count++;
+	n->next=Head;
+	Head=n;
+	}
+}
+
+template<class T>
+T stack<T>::pop()
+{
+	T val=0;
+	node<T> *n;
+	if(Head==NULL)
+	{
+		cout<<"Stack is Empty"<<endl;
+		return val;
+	}else
+	{
+		val=Head->data;
+		n=Head->next;
+		delete Head;
+		Head=n;
+		count--;
+		return(val);
+	}
+}
+
+template<class T>
+int stack<T>::stacksize()
+{
+	return count;
+}
+
+template<class T>
+void stack<T>::display()
+{
+	node<T> * temp=Head;
+	while(temp!=NULL)
+	{
+		cout<<temp->data<<"->";
+		temp=temp->next;
+	}
+	cout<<temp<<endl;
+}
+
+int main()
+{
+	stack <int> obj;
+	int val;
+	int i;
+	int res=0;
+	int nm;
+	int choice;
+	while(1)
+	{
+		cout<<"STACK OPERATIONS"<<endl;
+		cout<<"1.Push"<<endl;
+		cout<<"2.Pop"<<endl;
+		cout<<"3.Stacksize"<<endl;
+		cout<<"4.Display"<<endl;
+		cout<<"5.Exit"<<endl;
+		cout<<"Please enter your choice"<<endl;
+		cin>>choice;
+		switch(choice)
+		{
+			case 1:
+				cout<<"Enter the number elements to push into stack"<<endl;
+				cin>>nm;
+				cout<<"Enter the Number"<<endl;
+				for(i=0;i<nm;i++)
+				{
+					cin>>val;
+					obj.push(val);	
+				}
+				break;
+			case 2:
+				res=obj.pop();
+				if(res!=0)
+				cout<<"Poped value :"<<res<<endl;
+				break;
+			case 3:
+				cout<<"Stack size : "<<obj.stacksize()<<endl;
+				break;
+			case 4:
+				obj.display();
+				break;		
+			case 5:
+				exit(0);
+		}
+	}
+	return 0;
+}
+
+
+
+
+output:
+============
+Vasanth@Vasanth-PC ~/template
+$ ./a.exe
+STACK OPERATIONS
+1.Push
+2.Pop
+3.Stacksize
+4.Display
+5.Exit
+Please enter your choice
+1
+Enter the number elements to push into stack
+3
+Enter the Number
+10
+20
+30
+
+STACK OPERATIONS
+1.Push
+2.Pop
+3.Stacksize
+4.Display
+5.Exit
+Please enter your choice
+3
+Stack size : 3
+
+STACK OPERATIONS
+1.Push
+2.Pop
+3.Stacksize
+4.Display
+5.Exit
+Please enter your choice
+4
+30->20->10->0
+
+STACK OPERATIONS
+1.Push
+2.Pop
+3.Stacksize
+4.Display
+5.Exit
+Please enter your choice
+2
+Poped value :30
+
+STACK OPERATIONS
+1.Push
+2.Pop
+3.Stacksize
+4.Display
+5.Exit
+Please enter your choice
+3
+Stack size : 2
+
+STACK OPERATIONS
+1.Push
+2.Pop
+3.Stacksize
+4.Display
+5.Exit
+Please enter your choice
+4
+20->10->0
+
+STACK OPERATIONS
+1.Push
+2.Pop
+3.Stacksize
+4.Display
+5.Exit
+Please enter your choice
+2
+Poped value :20
+
+STACK OPERATIONS
+1.Push
+2.Pop
+3.Stacksize
+4.Display
+5.Exit
+Please enter your choice
+2
+Poped value :10
+
+STACK OPERATIONS
+1.Push
+2.Pop
+3.Stacksize
+4.Display
+5.Exit
+Please enter your choice
+2
+Stack is Empty
+
+STACK OPERATIONS
+1.Push
+2.Pop
+3.Stacksize
+4.Display
+5.Exit
+Please enter your choice
+3
+Stack size : 0
+
+STACK OPERATIONS
+1.Push
+2.Pop
+3.Stacksize
+4.Display
+5.Exit
+Please enter your choice
+4
+0
+
+STACK OPERATIONS
+1.Push
+2.Pop
+3.Stacksize
+4.Display
+5.Exit
+Please enter your choice
+5
+
+Vasanth@Vasanth-PC ~/template
+$
+
