@@ -1,0 +1,64 @@
+  1 // stack::push/pop
+  2 #include <iostream>       // std::cout
+  3 #include <stack>          // std::stack
+  4 #include <string>
+  5 
+  6 using namespace std;
+  7 int main ()
+  8 {
+  9    stack<string> mystack;
+ 10    string str1;
+ 11    cout<<"initial stacksize : "<<mystack.size()<<endl;
+ 12    cout<<"Enter the String"<<endl;
+ 13    for (int i=0; i<5; ++i)
+ 14       {
+ 15          cin>>str1;
+ 16          mystack.push(str1);
+ 17       }
+ 18    cout<<"after insertion stack size :"<<mystack.size()<<endl;
+ 19    cout << "Popping out elements...\n";
+ 20    while (!mystack.empty())
+ 21       {
+ 22          cout<<"stack size : "<<mystack.size()<<"\t";
+ 23          cout <<"top element :"<< mystack.top()<<endl;
+ 24          mystack.pop();
+ 25       }
+ 26    cout << '\n';
+ 27    return 0;
+ 28 }
+ 29 
+ 30 
+ 31 /* stack API's used in this program
+ 32  * 1.push-inserting element at the end
+ 33  * 2.pop-deleting last element
+ 34  * 3.top-return last element in stack
+ 35  * 4.empty-if stack is empty then it will return true otherwise false.
+ 36  * 5.size-number of element in the stack
+ 37  *
+ 38  * For more explanation use below link
+ 39  *
+ 40  * http://www.cplusplus.com/reference/stack/stack/swap/
+ 41  *
+ 42  * */
+
+
+Output:
+=============
+[rajeshwari@fedora16 seenu]$ 
+[rajeshwari@fedora16 seenu]$ ./a.out 
+initial stacksize : 0
+Enter the String
+kiran
+jana
+deelip
+prasanna
+seenu
+after insertion stack size :5
+Popping out elements...
+stack size : 5	top element :seenu
+stack size : 4	top element :prasanna
+stack size : 3	top element :deelip
+stack size : 2	top element :jana
+stack size : 1	top element :kiran
+
+[rajeshwari@fedora16 seenu]$ 
